@@ -19,17 +19,16 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val button = findViewById<Button>(R.id.button)
 
-        // Подписка на изменение counterData
         viewModel.counterData.observe(this, Observer { counter ->
             textView.text = counter.toString()
         })
 
-        // Подписка на изменение цвета текста
+        // меняю цвет))
         viewModel.textColor.observe(this, Observer { color ->
             textView.setTextColor(color)
         })
 
-        // Подписка на сообщение Toast
+        // сообщение вылезает
         viewModel.toastMessage.observe(this, Observer { message ->
             message?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Обработчик кнопки
+        // Обработка кнопочки
         button.setOnClickListener {
             viewModel.incrementCounter()
         }

@@ -20,7 +20,6 @@ class MainViewModel : ViewModel() {
         val newValue = (_counterData.value ?: 0) + 1
         _counterData.value = newValue
 
-        // Логика для Toast и изменения цвета текста
         when (newValue) {
             10 -> _toastMessage.value = "Поздравляем"
             15 -> _textColor.value = android.graphics.Color.GREEN
@@ -28,7 +27,6 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    // Метод для сброса сообщения Toast (однократное событие)
     fun resetToastMessage() {
         _toastMessage.value = null
     }
